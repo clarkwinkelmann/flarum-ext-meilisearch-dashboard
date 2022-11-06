@@ -1,0 +1,42 @@
+{
+    "name": "clarkwinkelmann/flarum-ext-meilisearch-dashboard",
+    "description": "Proxy for Meilisearch HTTP dashboard",
+    "keywords": [
+        "flarum",
+        "meilisearch"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.2",
+        "clarkwinkelmann/flarum-ext-scout": "*",
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-json": "*"
+    },
+    "authors": [
+        {
+            "name": "Clark Winkelmann",
+            "email": "clark.winkelmann@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/clarkwinkelmann/flarum-ext-meilisearch-dashboard"
+    },
+    "autoload": {
+        "psr-4": {
+            "ClarkWinkelmann\\MeilisearchDashboard\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Meilisearch Dashboard",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-search",
+                "backgroundColor": "#f47f68",
+                "color": "#fff"
+            }
+        }
+    }
+}
