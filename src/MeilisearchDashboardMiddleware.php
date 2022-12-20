@@ -60,7 +60,7 @@ class MeilisearchDashboardMiddleware implements MiddlewareInterface
         // Replace links to resources which don't include the subfolder
         $content = preg_replace('~(src|href)="/([^"]+\.(?:png|svg|js|json))"~', '$1="/meilisearch/$2"', $content);
         // Inject base path for use later
-        $content = str_replace('</head><body>', '</head><body><script>window.FLARUM_ORIGIN=' . json_encode('//' . $request->getUri()->getHost() . '/meilisearch') . '</script>', $content);
+        $content = str_replace('</head><body>', '</head><body><script>window.FLARUM_ORIGIN=' . json_encode($request->getUri()->getScheme() . '://' . $request->getUri()->getHost() . '/meilisearch') . '</script>', $content);
         // Change the base URL in the compiled javascript otherwise API requests to go the root
         $content = str_replace('window.location.origin', 'window.FLARUM_ORIGIN  ' /* spaces to be same length for sourcemap */, $content);
 
@@ -69,6 +69,6 @@ class MeilisearchDashboardMiddleware implements MiddlewareInterface
         fwrite($stream, $content);
         rewind($stream);
 
-        return $response->withBody(new Stream($stream));
+        return $response->withoutHeader('Content-Length')->withBody(new Stream($stream));
     }
 }
