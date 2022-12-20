@@ -21,7 +21,8 @@
         }
     ],
     "support": {
-        "source": "https://github.com/clarkwinkelmann/flarum-ext-meilisearch-dashboard"
+        "source": "https://github.com/clarkwinkelmann/flarum-ext-meilisearch-dashboard",
+        "forum": "https://discuss.flarum.org/d/32151"
     },
     "autoload": {
         "psr-4": {
